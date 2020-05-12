@@ -13,8 +13,6 @@ class SignUp extends React.Component {
 
     this.state = {
       displayName: "",
-      birthday: "",
-      sex: "",
       email: "",
       password: "",
       confirmPassword: "",
@@ -23,17 +21,11 @@ class SignUp extends React.Component {
 
   handleSubmit = async (event) => {
     event.preventDefault();
-    const {
-      displayName,
-    //   birthday,
-    //   sex,
-      email,
-      password,
-      confirmPassword,
-    } = this.state;
+
+    const { displayName, email, password, confirmPassword } = this.state;
 
     if (password !== confirmPassword) {
-      alert("Passwords don't match");
+      alert("passwords don't match");
       return;
     }
 
@@ -43,17 +35,10 @@ class SignUp extends React.Component {
         password
       );
 
-      await createUserProfileDocument(
-        user,
-        { displayName },
-        // { birthday },
-        // { sex }
-      );
+      await createUserProfileDocument(user, { displayName });
 
       this.setState({
         displayName: "",
-        birthday: "",
-        sex: "",
         email: "",
         password: "",
         confirmPassword: "",
@@ -65,23 +50,16 @@ class SignUp extends React.Component {
 
   handleChange = (event) => {
     const { name, value } = event.target;
+
     this.setState({ [name]: value });
   };
 
   render() {
-    const {
-      displayName,
-      birthday,
-      sex,
-      email,
-      password,
-      confirmPassword,
-    } = this.state;
-
+    const { displayName, email, password, confirmPassword } = this.state;
     return (
       <div className="sign-up">
-        <h2 className="title">I do not have an account.</h2>
-        <span>Sign up with your email and password.</span>
+        <h2 className="title">I do not have a account</h2>
+        <span>Sign up with your email and password</span>
         <form className="sign-up-form" onSubmit={this.handleSubmit}>
           <FormInput
             type="text"
@@ -89,22 +67,6 @@ class SignUp extends React.Component {
             value={displayName}
             onChange={this.handleChange}
             label="Display Name"
-            required
-          />
-          <FormInput
-            type="text"
-            name="birthday"
-            value={birthday}
-            onChange={this.handleChange}
-            label="Birthday"
-            required
-          />
-          <FormInput
-            type="text"
-            name="sex"
-            value={sex}
-            onChange={this.handleChange}
-            label="Sex"
             required
           />
           <FormInput
