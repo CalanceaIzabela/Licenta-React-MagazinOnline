@@ -21,7 +21,7 @@ const SignIn = ({ emailSignInStart, googleSignInStart }) => {
     password: "",
   });
 
-  const { email, password } = this.state;
+  const { email, password } = userCredentials;
 
   const handleSubmit = async (event) => {
     event.preventDefault();
