@@ -6,17 +6,20 @@ import {
         AboutPageBodyContainer
 } from './about.styles';
 
-const AboutPage = () => {
+const Page = () => {
 
         return(
                 <AboutPageContainer>
                         <AboutPageTitleContainer>
-                                This is the about page.
+                                About online shop application
                         </AboutPageTitleContainer>
-                        <AboutPageBodyContainer>Some time gere</AboutPageBodyContainer>
+                        <AboutPageBodyContainer>This application is a little website to demonstrate
+                        the way that ReactJS can be used and the way that an application is working with this framework.
+                        The simplicity is shown through this website.
+                        </AboutPageBodyContainer>
                         
                 </AboutPageContainer>
         )
 }
 
-export default AboutPage;
+export default Page;
